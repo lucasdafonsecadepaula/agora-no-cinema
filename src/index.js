@@ -1,10 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './pages/FrontPage';
+import App from './App';
+import { MovieRealesesProvider } from './hooks/MovieRealesesProvider';
+import { ContextThemeProvider } from './hooks/ThemeProvider';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
+  <ContextThemeProvider>
+    <MovieRealesesProvider>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
+    </MovieRealesesProvider>
+  </ContextThemeProvider>,
   document.getElementById('root'),
 );
