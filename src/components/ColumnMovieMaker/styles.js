@@ -36,7 +36,7 @@ export const DivButton = styled.div`
   justify-content: space-between;
 
   button {
-    z-index: 2;
+    z-index: 1;
     margin: 20px 0;
     background: ${(props) => props.theme.colors.primary};
     cursor: pointer;

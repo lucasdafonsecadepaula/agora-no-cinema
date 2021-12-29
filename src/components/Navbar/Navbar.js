@@ -1,6 +1,6 @@
 import React, { useContext } from 'react';
 import Switch from 'react-switch';
-import { ContextTheme } from '../../hooks/ThemeProvider';
+import { ContextTheme } from '../../context/ThemeProvider';
 import { Bar } from './styles';
 
 export default function Navbar() {
