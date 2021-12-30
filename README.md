@@ -1,6 +1,6 @@
 <h1 align="center">
 <br>
-  ![Make-up Logo](https://github.com/lucasdafonsecadepaula/Unid-Desafio/blob/main/github-img/logo.png)
+  ![Make-up Logo](https://user-images.githubusercontent.com/78559200/147715489-dcd06f25-eca9-4e12-a9e8-663e82cb0d88.png)
   <br>
     <br>
   Movie Night - Unid Challenger
