@@ -3,24 +3,24 @@ import { getMoreCollumns } from '../../hooks/getMoreCollumns';
 import ColumnMovieMaker from '../ColumnMovieMaker/ColumnMovieMaker';
 
 export default function InfinitScrollDownContent() {
-  const [array, setArray] = useState([]);
+  const [columnArrayData, setColumArrayData] = useState([]);
 
   useEffect(() => {
     const intersectionObserver = new IntersectionObserver(
       (entries) => {
         if (entries.some((entry) => entry.isIntersecting)) {
-          getMoreCollumns({ array, setArray });
+          getMoreCollumns({ columnArrayData, setColumArrayData });
         }
       },
       { threshold: 0.9 },
     );
     intersectionObserver.observe(document.querySelector('#lastDivVisible'));
     return () => intersectionObserver.disconnect();
-  }, [array]);
+  }, [columnArrayData]);
 
   return (
     <>
-      {array.map((e) => (
+      {columnArrayData.map((e) => (
         <ColumnMovieMaker
           key={e.id}
           value={{ arrayMovies: e.arrayMovies, title: e.title }}

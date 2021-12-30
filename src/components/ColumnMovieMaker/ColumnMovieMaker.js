@@ -20,8 +20,7 @@ function ColumnMovieMaker({ value }) {
 
   const animation = (e) => {
     const index = animationX.multiplier + e;
-    const moveValuePx =
-      (e + animationX.multiplier) * defaultMovePx * fixMoveDirection;
+    const moveValuePx = index * defaultMovePx * fixMoveDirection;
 
     if (
       moveValuePx * fixMoveDirection + widthRef.current.clientWidth >

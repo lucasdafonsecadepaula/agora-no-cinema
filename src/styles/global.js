@@ -29,6 +29,7 @@ body {
         ? 'rgba(0,0,0,0.3)'
         : 'rgba(255,255,255,0.3)'};	
 }
+
 .modal-content{
     position: relative;
     box-shadow: 2px 5px rgba(0,0,0, 0.3);
@@ -45,19 +46,20 @@ body {
 .ReactModal__Html--open {
   overflow: hidden;
   .btn-left, .btn-right{
-      display: none;
+         display: none;
   }
 }
+
 .ReactModal__Content {
     opacity: 0;
     transform: scale(0.9);
     transition: all 300ms ease-in-out;
 }
+
 .ReactModal__Content--after-open{
     opacity: 1;
     transform: scale(1);
 }
-
 
 .ReactModal__Overlay {
     transform: scale(1);
@@ -68,13 +70,9 @@ body {
     transform: scale(0.9);
 }
 
-
-
 @media screen and (max-width: 600px) {
     .modal-content{
         width: 99%;
     }
 }
-
-
 `;

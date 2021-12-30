@@ -1,11 +1,5 @@
-import axios from 'axios';
-import React, {
-  useState,
-  createContext,
-  useMemo,
-  useEffect,
-  useCallback,
-} from 'react';
+import React, { useState, createContext, useMemo, useEffect } from 'react';
+import apiMovieDB from '../services/apiMovieDB';
 
 export const ContextModal = createContext({});
 
@@ -14,25 +8,22 @@ export function ModalProvider({ children }) {
     isOpen: false,
     data: {},
   });
-
-  const [trailerData, setTrailerData] = useState();
-
-  const fetchData = useCallback(async () => {
-    const { id } = movieModal.data;
-    await axios
-      .get(
-        `${process.env.REACT_APP_BASE_URL}/movie/${id}/videos?${process.env.REACT_APP_API_KEY}`,
-      )
-      .then((res) => {
-        setTrailerData(res.data.results);
-      });
-  }, [movieModal.data]);
+  const [trailerData, setTrailerData] = useState([]);
 
   useEffect(() => {
     if (movieModal.isOpen) {
-      fetchData();
+      const { id } = movieModal.data;
+      const fetchTrailerData = async () => {
+        await apiMovieDB
+          .get(`/movie/${id}/videos`)
+          .then((res) => {
+            setTrailerData(res.data.results);
+          })
+          .catch(() => setTrailerData([]));
+      };
+      fetchTrailerData();
     }
-  }, [movieModal.isOpen, fetchData]);
+  }, [movieModal]);
 
   const ModalControler = useMemo(
     () => ({ movieModal, setMovieModal, trailerData }),

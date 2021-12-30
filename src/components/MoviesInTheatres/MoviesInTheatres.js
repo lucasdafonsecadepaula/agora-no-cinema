@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { ContextMoveRealeses } from '../../context/MovieRealesesProvider';
+import { ContextMoveRealeses } from '../../context/MovieReleasesProvider';
 import ColumnMovieMaker from '../ColumnMovieMaker/ColumnMovieMaker';
 
 export default function MoviesInTheatres() {

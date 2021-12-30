@@ -10,7 +10,12 @@ export default function Navbar() {
   return (
     <Bar>
       <div />
-      <h1>Movie Night</h1>
+
+      <div className="title">
+        <h1>Movie Night</h1>
+        <img alt="Logo" src="./favicon.ico" />
+      </div>
+
       <Switch
         height={20}
         width={40}

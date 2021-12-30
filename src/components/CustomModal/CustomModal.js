@@ -28,8 +28,18 @@ export default function CustomModal() {
           bgPhoto={`url(https://image.tmdb.org/t/p/original${data.poster_path})`}
           voteAverage={data.vote_average}
         >
-          {trailerData && (
+          <button
+            aria-label="Close"
+            type="button"
+            className="close-button"
+            onClick={() => setMovieModal({ isOpen: false, data: {} })}
+          >
+            ✖️
+          </button>
+
+          {trailerData.length !== 0 && (
             <iframe
+              className="iframe"
               key={trailerData[0].id}
               src={`https://www.youtube.com/embed/${trailerData[0].key}?autoplay=1&cc_lang_pref=br`}
               title={`${trailerData[0].name}`}
@@ -45,8 +55,10 @@ export default function CustomModal() {
                   <h2>{data.vote_average}</h2>
                 </div>
               </div>
-              <h3>{data.overview}</h3>
-              <p>Data de Lançamento: {releaseDayBrFormat}</p>
+              <h3 className="overview">{data.overview}</h3>
+              <p className="release-date">
+                Data de Lançamento: {releaseDayBrFormat}
+              </p>
             </div>
           </div>
         </Container>

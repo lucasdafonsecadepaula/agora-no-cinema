@@ -1,18 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
 import { ModalProvider } from './context/ModalProvider';
-import { MovieRealesesProvider } from './context/MovieRealesesProvider';
+import { MovieReleasesProvider } from './context/MovieReleasesProvider';
 import { ContextThemeProvider } from './context/ThemeProvider';
+import App from './App';
 
 ReactDOM.render(
   <ModalProvider>
     <ContextThemeProvider>
-      <MovieRealesesProvider>
+      <MovieReleasesProvider>
         <React.StrictMode>
           <App />
         </React.StrictMode>
-      </MovieRealesesProvider>
+      </MovieReleasesProvider>
     </ContextThemeProvider>
   </ModalProvider>,
   document.getElementById('root'),

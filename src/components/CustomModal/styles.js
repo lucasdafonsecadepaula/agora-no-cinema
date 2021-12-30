@@ -5,10 +5,47 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   color: #333;
-  padding: 20px;
+  padding: 25px;
   background: ${({ bgPhoto }) => bgPhoto};
   background-position: center 15%;
   border-radius: 10px;
+
+  .close-button {
+    background: none;
+    border: none;
+    padding: 0;
+    font: inherit;
+    outline: inherit;
+    cursor: pointer;
+    background-color: #222;
+    color: #eaeaea;
+    height: 30px;
+    width: 30px;
+    border-radius: 50%;
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    font-size: 20px;
+    line-height: 5px;
+  }
+
+  iframe {
+    width: 100%;
+    aspect-ratio: 1920/1080;
+    border-radius: 8px;
+  }
+  @media screen and (max-height: 750px) {
+    iframe {
+      width: 70%;
+      aspect-ratio: 1920/1080;
+    }
+  }
+  @media screen and (max-height: 600px) {
+    iframe {
+      width: 40%;
+      aspect-ratio: 1920/1080;
+    }
+  }
 
   .fix-margin {
     width: 100%;
@@ -26,12 +63,14 @@ export const Container = styled.div`
   .text-place {
     width: 95%;
   }
+
   .header-text {
     position: relative;
     display: flex;
     justify-content: space-between;
     margin: 10px 0;
   }
+
   .circule-average {
     display: flex;
     align-items: center;
@@ -59,30 +98,12 @@ export const Container = styled.div`
     `}
   }
 
-  h3 {
+  .overview {
     font-weight: 500;
   }
-  p {
+
+  .release-date {
     text-align: end;
     margin-top: 10px;
-  }
-
-  iframe {
-    width: 100%;
-    aspect-ratio: 1920/1080;
-    border-radius: 8px;
-  }
-
-  @media screen and (max-height: 750px) {
-    iframe {
-      width: 70%;
-      aspect-ratio: 1920/1080;
-    }
-  }
-  @media screen and (max-height: 600px) {
-    iframe {
-      width: 40%;
-      aspect-ratio: 1920/1080;
-    }
   }
 `;

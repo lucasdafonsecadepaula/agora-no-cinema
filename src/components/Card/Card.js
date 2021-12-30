@@ -4,7 +4,6 @@ import { ContextModal } from '../../context/ModalProvider';
 import { Body, VoteAverage } from './styles';
 
 function Card({ value }) {
-  // id
   const { title, overview, poster_path, vote_average } = value;
   const { setMovieModal } = useContext(ContextModal);
 
