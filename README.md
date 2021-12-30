@@ -2,9 +2,11 @@
 <br>
   <img alt="Make-up Logo" src="https://github.com/lucasdafonsecadepaula/Unid-Desafio/blob/main/github-img/logo.png" />
   <br>
-    <br>
+  <br>
   Movie Night - Unid Challenger
   <br>
+  <br>
+  <a href="https://unid-desafio.vercel.app/">https://unid-desafio.vercel.app/</a>
 </h1>
 
 ---
@@ -16,11 +18,10 @@
 
 Temos dois jeitos de verificar o resultado:
 
-    **1° Acessando o link abaixo:**
-    <a href="https://unid-desafio.vercel.app/">https://unid-desafio.vercel.app/</a>
+**1° Acessando o link: https://unid-desafio.vercel.app/**
 
 
-    **2° Clonando o repositório do github:
+**2° Clonando o repositório do github:**
 
     Basta acessar ou criar uma nova pasta no seu computador,
     Abrir o console da sua máquina (cmd, terminal, prompt...) nesta pasta
