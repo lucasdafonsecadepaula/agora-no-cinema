@@ -9,6 +9,12 @@ export const Container = styled.div`
   background: ${({ bgPhoto }) => bgPhoto};
   background-position: center 15%;
   border-radius: 10px;
+  @media screen and (max-height: 600px) {
+    padding: 0;
+  }
+  @media screen and (max-height: 550px) {
+    font-size: 10px;
+  }
 
   .close-button {
     background: none;
@@ -33,18 +39,6 @@ export const Container = styled.div`
     width: 100%;
     aspect-ratio: 1920/1080;
     border-radius: 8px;
-  }
-  @media screen and (max-height: 750px) {
-    iframe {
-      width: 70%;
-      aspect-ratio: 1920/1080;
-    }
-  }
-  @media screen and (max-height: 600px) {
-    iframe {
-      width: 40%;
-      aspect-ratio: 1920/1080;
-    }
   }
 
   .fix-margin {
