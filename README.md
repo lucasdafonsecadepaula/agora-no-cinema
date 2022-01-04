@@ -38,6 +38,7 @@ Temos dois jeitos de verificar o resultado:
     Após a instalação, digitar o último comando "npm run start".
     Com isso basta aguardar que a aplicação estará se inicializando 
     no seu browser padrão na porta 3000.
+    Lembrando que para utilizar esses comandos deve ser previamente instalado o git e um gerenciador de pacotes como o npm ou o yarn.
 
     
 !Lembrete: Foi intencional o envio do arquivo .env.local, pois é necessário um token para acessar a api.
