@@ -41,10 +41,11 @@ export default function CustomModal() {
             <iframe
               className="iframe"
               key={trailerData[0].id}
-              src={`https://www.youtube.com/embed/${trailerData[0].key}?autoplay=1&cc_lang_pref=br`}
+              src={`https://www.youtube-nocookie.com/embed/${trailerData[0].key}?autoplay=1&cc_lang_pref=br&showinfo=0`}
               title={`${trailerData[0].name}`}
               frameBorder="0"
               allowFullScreen
+              allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
             />
           )}
           <div className="fix-margin">
