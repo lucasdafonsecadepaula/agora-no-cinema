@@ -6,7 +6,7 @@
   Movie Night
   <br>
   <br>
-  <a href="https://unid-desafio.vercel.app/">https://unid-desafio.vercel.app/</a>
+  <a href="https://movienight-new.vercel.app/">https://movienight-new.vercel.app/</a>
 </h1>
 
 ---
