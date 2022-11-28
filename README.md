@@ -3,14 +3,14 @@
   <img alt="Make-up Logo" src="https://github.com/lucasdafonsecadepaula/Unid-Desafio/blob/main/github-img/logo.png" />
   <br>
   <br>
-  Movie Night - Unid Challenger
+  Movie Night
   <br>
   <br>
   <a href="https://unid-desafio.vercel.app/">https://unid-desafio.vercel.app/</a>
 </h1>
 
 ---
-<h3 align="center">Aqui está o site em React17 com estilização em styled-components<br>Espero que gostem!❤</h3>
+<h3 align="center">Site em React17 com estilização em styled-components<br>Espero que gostem!❤</h3>
 
 ---
 
@@ -41,4 +41,3 @@ Temos dois jeitos de verificar o resultado:
     Lembrando que para utilizar esses comandos deve ser previamente instalado o git e um gerenciador de pacotes como o npm ou o yarn.
 
     
-!Lembrete: Foi intencional o envio do arquivo .env.local, pois é necessário um token para acessar a api.
