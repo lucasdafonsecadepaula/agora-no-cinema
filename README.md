@@ -25,14 +25,14 @@ Aplicação criada com a biblioteca React e estilizações em styled-components 
 
 Temos dois jeitos de verificar o resultado:
 
-**1° Acessando o link: https://unid-desafio.vercel.app/**
+**1° Acessando o link: https://movienight-new.vercel.app/**
 
 
 **2° Clonando o repositório do github:**
 
     Basta acessar ou criar uma nova pasta no seu computador,
     Abrir o console da sua máquina (cmd, terminal, prompt...) nesta pasta
-    e digitar "git clone https://github.com/lucasdafonsecadepaula/Unid-Desafio.git"
+    e digitar "git clone https://github.com/lucasdafonsecadepaula/movie-night.git"
     Após isso basta acessar a pasta Unid-Desafio que foi criada
     e digitar o comando "npm install" no console da sua máquina.
     Após a instalação, digitar o último comando "npm run start".
