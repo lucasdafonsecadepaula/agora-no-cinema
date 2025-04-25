@@ -28,7 +28,9 @@ export function MovieSlider({ movies }: MovieSliderProps) {
   };
 
   const goToPrevious = () => {
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + movies.length) % movies.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + movies.length) % movies.length
+    );
   };
 
   const goToSlide = (index: number) => {
@@ -46,8 +48,8 @@ export function MovieSlider({ movies }: MovieSliderProps) {
   const swipeHandlers = useSwipeable({
     onSwipedLeft: () => goToNext(),
     onSwipedRight: () => goToPrevious(),
-    preventDefaultTouchmoveEvent: true,
-    trackMouse: true
+    preventScrollOnSwipe: true,
+    trackMouse: true,
   });
 
   if (showingTrailer) {
@@ -76,7 +78,10 @@ export function MovieSlider({ movies }: MovieSliderProps) {
   }
 
   return (
-    <div className="relative h-screen w-full overflow-hidden" {...swipeHandlers}>
+    <div
+      className="relative h-screen w-full overflow-hidden"
+      {...swipeHandlers}
+    >
       <div className="absolute inset-0 w-full h-full transition-opacity duration-500">
         <Image
           src={currentMovie.image}

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { MovieSlider } from "@/components/movie-slider";
 
 interface Movie {
@@ -38,6 +39,10 @@ async function getMovies(): Promise<Movie[]> {
     const firstFiveMovies = data.results.slice(0, 5);
 
     const moviesWithVideos = await Promise.all(
+      // I could create a type for the response, but I think it's better to add something
+      // like zod and validate the response, then we can have better logging and error handling
+      // but for now, let's just use any
+      // and keep it simple
       firstFiveMovies.map(async (movie: any) => {
         const videosResponse = await fetch(
           `https://api.themoviedb.org/3/movie/${movie.id}/videos?language=pt-BR`,
