@@ -5,6 +5,7 @@ import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface Movie {
   id: number;
@@ -21,19 +22,21 @@ interface MovieSliderProps {
 export function MovieSlider({ movies }: MovieSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [showingTrailer, setShowingTrailer] = useState(false);
+  const [direction, setDirection] = useState(0);
   const currentMovie = movies[currentIndex];
 
   const goToNext = () => {
+    setDirection(1);
     setCurrentIndex((prevIndex) => (prevIndex + 1) % movies.length);
   };
 
   const goToPrevious = () => {
-    setCurrentIndex(
-      (prevIndex) => (prevIndex - 1 + movies.length) % movies.length
-    );
+    setDirection(-1);
+    setCurrentIndex((prevIndex) => (prevIndex - 1 + movies.length) % movies.length);
   };
 
   const goToSlide = (index: number) => {
+    setDirection(index > currentIndex ? 1 : -1);
     setCurrentIndex(index);
   };
 
@@ -82,15 +85,25 @@ export function MovieSlider({ movies }: MovieSliderProps) {
       className="relative h-screen w-full overflow-hidden"
       {...swipeHandlers}
     >
-      <div className="absolute inset-0 w-full h-full transition-opacity duration-500">
-        <Image
-          src={currentMovie.image}
-          alt={`${currentMovie.title} background`}
-          fill
-          priority
-          className="object-cover"
-        />
-      </div>
+      <AnimatePresence initial={false} custom={direction}>
+        <motion.div
+          key={currentIndex}
+          custom={direction}
+          initial={{ opacity: 0, x: direction * 100 }}
+          animate={{ opacity: 1, x: 0 }}
+          exit={{ opacity: 0, x: direction * -100 }}
+          transition={{ duration: 0.5 }}
+          className="absolute inset-0 w-full h-full"
+        >
+          <Image
+            src={currentMovie.image}
+            alt={`${currentMovie.title} background`}
+            fill
+            priority
+            className="object-cover"
+          />
+        </motion.div>
+      </AnimatePresence>
 
       <div
         className="absolute inset-0"
@@ -116,31 +129,41 @@ export function MovieSlider({ movies }: MovieSliderProps) {
         <ChevronRight className="w-8 h-8 md:w-12 md:h-12 text-white" />
       </button>
 
-      <div className="absolute bottom-12 md:bottom-24 left-4 md:left-12 lg:left-24 max-w-[90%] md:max-w-xl z-20">
-        <div className="p-4 md:p-6">
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-4">
-            {currentMovie.title}
-          </h1>
-          <p className="text-sm sm:text-base md:text-lg text-white/90 mb-4 md:mb-6 line-clamp-3 md:line-clamp-none">
-            {currentMovie.description}
-          </p>
-          <div>
-            {currentMovie.trailerUrl && (
-              <Button
-                size="lg"
-                className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white"
-                onClick={watchTrailer}
-              >
-                Watch Trailer
-              </Button>
-            )}
+      <AnimatePresence initial={false} custom={direction}>
+        <motion.div
+          key={currentIndex}
+          custom={direction}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          exit={{ opacity: 0, y: -20 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="absolute bottom-12 md:bottom-24 left-4 md:left-12 lg:left-24 max-w-[90%] md:max-w-xl z-20"
+        >
+          <div className="p-4 md:p-6">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-4">
+              {currentMovie.title}
+            </h1>
+            <p className="text-sm sm:text-base md:text-lg text-white/90 mb-4 md:mb-6 line-clamp-3 md:line-clamp-none">
+              {currentMovie.description}
+            </p>
+            <div>
+              {currentMovie.trailerUrl && (
+                <Button
+                  size="lg"
+                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white"
+                  onClick={watchTrailer}
+                >
+                  Watch Trailer
+                </Button>
+              )}
+            </div>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </AnimatePresence>
 
       <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-3 z-20">
         {movies.map((_, index) => (
-          <button
+          <motion.button
             key={index}
             onClick={() => goToSlide(index)}
             className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${
@@ -149,6 +172,8 @@ export function MovieSlider({ movies }: MovieSliderProps) {
                 : "bg-white/50 hover:bg-white/70"
             }`}
             aria-label={`Go to slide ${index + 1}`}
+            whileHover={{ scale: 1.2 }}
+            whileTap={{ scale: 0.9 }}
           />
         ))}
       </div>
