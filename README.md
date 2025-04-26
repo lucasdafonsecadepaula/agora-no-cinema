@@ -1,132 +1,56 @@
-# Movie Night - Top 5 In Theaters
+# 🎬 Agora no Cinema
 
-<h1 align="center">
-<br>
-  <br>
-  <br>
-  Movie Night
-  <br>
-  <br>
-  <a href="https://movienight-new.vercel.app/">https://movienight-new.vercel.app/</a>
-</h1>
+**Veja os 5 melhores filmes em cartaz com uma interface rápida, limpa e sem distrações.**
 
-<h3 align="center">A modern React application showcasing the top 5 movies currently in theaters<br>Built with ❤️</h3>
+👉 [Acesse agora](https://agoranocinema.vercel.app/)
 
 ---
 
-## Description
+## ✨ Sobre o Projeto
 
-Movie Night is a sleek, modern web application that displays the top 5 movies currently playing in theaters. The application integrates with the TMDB API to provide real-time information about the latest blockbusters, including:
+O **Agora no Cinema** é um site minimalista que mostra os **5 melhores filmes atualmente em exibição nos cinemas**. A ideia é focar apenas nos destaques, tornando mais fácil e rápido decidir o que assistir.
 
-- Movie details and synopses
-- Current theater showtimes
-- Ratings and reviews
-- Cast information
-- High-quality movie posters
+Este projeto foi criado com o objetivo de **estudo**, **exploração de design de interfaces modernas**, e como uma solução prática para encontrar bons filmes de forma eficiente. No futuro, ele pode se expandir para também sugerir séries e filmes sob demanda.
 
 ---
 
-## Tech Stack
+## 🛠 Tecnologias
 
-- **Frontend Framework**: React 18
-- **Styling**: Tailwind CSS
-- **State Management**: React Query
-- **API Integration**: TMDB API
-- **Deployment**: Vercel
-- **Package Manager**: npm/yarn
+- [React](https://reactjs.org/)
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [TMDb API](https://www.themoviedb.org/documentation/api)
 
 ---
 
-## Features
+## 🚀 Acesse Online
 
-- Real-time updates of top 5 movies in theaters
-- Responsive design for all devices
-- Detailed movie information
-- Clean and modern user interface
-- Fast loading times with optimized images
+O projeto está hospedado e pronto para uso:
+
+👉 **[https://agoranocinema.vercel.app/](https://agoranocinema.vercel.app/)**
 
 ---
 
-## Getting Started
+## 📦 Funcionalidades
 
-### Option 1: Visit the Live Site
-
-Access the application directly at: [https://movienight-new.vercel.app/](https://movienight-new.vercel.app/)
-
-### Option 2: Run Locally
-
-1. Clone the repository:
-
-```bash
-git clone https://github.com/lucasdafonsecadepaula/movie-night.git
-```
-
-2. Navigate to the project directory:
-
-```bash
-cd movie-night
-```
-
-3. Install dependencies:
-
-```bash
-npm install
-# or
-yarn install
-```
-
-4. Start the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-5. Open your browser and visit `http://localhost:3000`
+- Exibe os **5 filmes mais bem avaliados** em cartaz no momento
+- Interface limpa, responsiva e sem anúncios
+- Design focado na **experiência do usuário**
 
 ---
 
-## Prerequisites
+## 💡 Futuras melhorias
 
-- Node.js (v16 or higher)
-- npm or yarn
-- Git
-
----
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+- Busca por filmes e séries
+- Página com detalhes dos filmes
+- Integração com serviços de streaming
+- Favoritos/salvar para assistir depois
 
 ---
 
-## License
+## 🤝 Contribuições
 
-This project is licensed under the MIT License - see the LICENSE file for details.
-
----
-
-## Descrição
-
-Aplicação criada com a biblioteca React e estilizações em styled-components integrando a API do TMDB, para mostrar as descrições, trailers e média de pontuação de filmes atuais e antigos.
+Contribuições são bem-vindas!  
+Sinta-se à vontade para abrir issues ou enviar pull requests.
 
 ---
-
-## Como executar?
-
-Temos dois jeitos de verificar o resultado:
-
-**1° Acessando o link: https://movienight-new.vercel.app/**
-
-**2° Clonando o repositório do github:**
-
-    Basta acessar ou criar uma nova pasta no seu computador,
-    Abrir o console da sua máquina (cmd, terminal, prompt...) nesta pasta
-    e digitar "git clone https://github.com/lucasdafonsecadepaula/movie-night.git"
-    Após isso basta acessar a pasta Unid-Desafio que foi criada
-    e digitar o comando "npm install" no console da sua máquina.
-    Após a instalação, digitar o último comando "npm run start".
-    Com isso basta aguardar que a aplicação estará se inicializando
-    no seu browser padrão na porta 3000.
-    Lembrando que para utilizar esses comandos deve ser previamente instalado o git e um gerenciador de pacotes como o npm ou o yarn
