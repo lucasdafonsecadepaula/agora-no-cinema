@@ -1,11 +1,11 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import { AnimatePresence, motion } from "framer-motion";
 import { ArrowLeft, ChevronLeft, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
 import { useSwipeable } from "react-swipeable";
-import { motion, AnimatePresence } from "framer-motion";
 
 interface Movie {
   id: number;
@@ -32,7 +32,9 @@ export function MovieSlider({ movies }: MovieSliderProps) {
 
   const goToPrevious = () => {
     setDirection(-1);
-    setCurrentIndex((prevIndex) => (prevIndex - 1 + movies.length) % movies.length);
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + movies.length) % movies.length
+    );
   };
 
   const goToSlide = (index: number) => {
@@ -100,6 +102,10 @@ export function MovieSlider({ movies }: MovieSliderProps) {
             alt={`${currentMovie.title} background`}
             fill
             priority
+            placeholder="blur"
+            blurDataURL={currentMovie.image}
+            sizes="100vw"
+            quality={90}
             className="object-cover"
           />
         </motion.div>
@@ -140,20 +146,20 @@ export function MovieSlider({ movies }: MovieSliderProps) {
           className="absolute bottom-12 md:bottom-24 left-4 md:left-12 lg:left-24 max-w-[90%] md:max-w-xl z-20"
         >
           <div className="p-4 md:p-6">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-2 md:mb-4">
+            <h1 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold text-white mb-2 md:mb-4">
               {currentMovie.title}
             </h1>
-            <p className="text-sm sm:text-base md:text-lg text-white/90 mb-4 md:mb-6 line-clamp-3 md:line-clamp-none">
+            <p className="text-xs sm:text-sm md:text-base lg:text-lg text-white/90 mb-3 md:mb-4 lg:mb-6 line-clamp-2 sm:line-clamp-3 md:line-clamp-none">
               {currentMovie.description}
             </p>
             <div>
               {currentMovie.trailerUrl && (
                 <Button
                   size="lg"
-                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white"
+                  className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white text-sm sm:text-base"
                   onClick={watchTrailer}
                 >
-                  Watch Trailer
+                  Assistir o Trailer
                 </Button>
               )}
             </div>
@@ -161,12 +167,12 @@ export function MovieSlider({ movies }: MovieSliderProps) {
         </motion.div>
       </AnimatePresence>
 
-      <div className="absolute bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 md:space-x-3 z-20">
+      <div className="absolute bottom-2 sm:bottom-4 md:bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-1.5 sm:space-x-2 md:space-x-3 z-20">
         {movies.map((_, index) => (
           <motion.button
             key={index}
             onClick={() => goToSlide(index)}
-            className={`w-2 h-2 md:w-3 md:h-3 rounded-full transition-all ${
+            className={`w-1.5 h-1.5 sm:w-2 sm:h-2 md:w-3 md:h-3 rounded-full transition-all ${
               index === currentIndex
                 ? "bg-white scale-125"
                 : "bg-white/50 hover:bg-white/70"
