@@ -87,28 +87,34 @@ export function MovieSlider({ movies }: MovieSliderProps) {
       className="relative h-screen w-full overflow-hidden"
       {...swipeHandlers}
     >
-      <AnimatePresence initial={false} custom={direction}>
-        <motion.div
-          key={currentIndex}
-          custom={direction}
-          initial={{ opacity: 0, x: direction * 100 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: direction * -100 }}
-          transition={{ duration: 0.5 }}
-          className="absolute inset-0 w-full h-full"
-        >
-          <Image
-            src={currentMovie.image}
-            alt={`${currentMovie.title} background`}
-            fill
-            priority
-            placeholder="blur"
-            blurDataURL={currentMovie.image}
-            sizes="100vw"
-            quality={90}
-            className="object-cover"
-          />
-        </motion.div>
+      <AnimatePresence mode="popLayout" initial={false} custom={direction}>
+        {movies.map((movie, index) => (
+          <motion.div
+            key={movie.id}
+            custom={direction}
+            initial={{ opacity: 0, x: direction * 100 }}
+            animate={{
+              opacity: index === currentIndex ? 1 : 0,
+              x: index === currentIndex ? 0 : direction * 100,
+              zIndex: index === currentIndex ? 1 : 0,
+            }}
+            exit={{ opacity: 0, x: direction * -100 }}
+            transition={{ duration: 0.5 }}
+            className="absolute inset-0 w-full h-full"
+          >
+            <Image
+              src={movie.image}
+              alt={`${movie.title} background`}
+              fill
+              priority={index === 0}
+              placeholder="blur"
+              blurDataURL={movie.image}
+              sizes="100vw"
+              quality={90}
+              className="object-cover"
+            />
+          </motion.div>
+        ))}
       </AnimatePresence>
 
       <div
